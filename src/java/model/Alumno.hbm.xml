@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/03/2018 02:52:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Alumno" table="alumno" catalog="escuela1" optimistic-lock="version">
+        <id name="matricula" type="java.lang.Integer">
+            <column name="matricula" />
+            <generator class="identity" />
+        </id>
+        <property name="grupo" type="string">
+            <column name="grupo" length="45" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="apaterno" type="string">
+            <column name="aPaterno" length="45" />
+        </property>
+        <property name="amaterno" type="string">
+            <column name="aMaterno" length="45" />
+        </property>
+        <property name="telefono" type="java.lang.Integer">
+            <column name="telefono" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="edad" type="java.lang.Integer">
+            <column name="edad" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="45" />
+        </property>
+        <set name="asignaturases" table="asignaturas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="alumno_matricula" />
+            </key>
+            <one-to-many class="model.Asignaturas" />
+        </set>
+    </class>
+</hibernate-mapping>

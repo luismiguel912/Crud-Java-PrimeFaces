@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Alta Asignatura</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                
+                <p:outputLabel value="ID Alumno"/>
+                <p:inputText value="#{asignaturaBean.asignatura.alumno}"/>
+                
+                <p:outputLabel value="ID Profesor"/>
+                <p:inputText value="#{asignaturaBean.asignatura.profesor}"/>
+                
+                <p:outputLabel value="Nombre"/>
+                <p:inputText value="#{asignaturaBean.asignatura.nombre}"/>
+                
+                <p:outputLabel value="Descripcion"/>
+                <p:inputText value="#{asignaturaBean.asignatura.descripcion}"/>
+                
+                <p:outputLabel value="Creditos"/>
+                <p:inputText value="#{asignaturaBean.asignatura.creditos}"/>
+                
+                <p:outputLabel value="Horas"/>
+                <p:inputText value="#{asignaturaBean.asignatura.horas}"/>
+            </h:panelGrid>
+            <p:commandButton value="Guardar" actionListener="#{asignaturaBean.Insertar()}"/>
+        </h:form>
+    </h:body>
+    
+</html>

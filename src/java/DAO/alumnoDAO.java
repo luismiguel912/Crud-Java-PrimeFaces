@@ -1,0 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package DAO;
+
+import model.Alumno;
+
+/**
+ *
+ * @author luis
+ */
+public interface alumnoDAO {
+    public void crearAlumno(Alumno alumnos);
+    public void eliminaAlumno(Alumno alumnos);
+    public void actualizaAlumno(Alumno alumnos);
+    
+}

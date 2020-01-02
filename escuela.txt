@@ -1,0 +1,66 @@
+drop database escuelas;
+create database escuela1;
+
+use escuela1;
+
+create table Profesor(
+Idprofesor int auto_increment,
+nombre varchar(45),
+aPaterno varchar(45),
+aMaterno varchar(45),
+direccion varchar(45),
+telefono int,
+email varchar(45),
+sexo varchar(45),
+titulo varchar(45),
+cedula int,
+primary key(Idprofesor));
+
+create table Alumno(
+matricula int auto_increment,
+grupo varchar(45),
+nombre varchar(45),
+aPaterno varchar(45),
+aMaterno varchar(45),
+telefono int,
+email varchar(45),
+edad int,
+sexo varchar(45),
+primary key(matricula));
+
+
+
+create table Asignaturas(
+Idasignaturas int auto_increment,
+alumno_matricula  int,
+profesor_idprofesor int,
+foreign key(alumno_matricula) references Alumno(matricula),
+foreign key(profesor_idprofesor) references Profesor(Idprofesor),
+nombre varchar(45),
+descripcion varchar(45),
+creditos int,
+horas int,
+primary key(Idasignaturas));
+
+
+
+jdbc:mysql://localhost:3306/escuela
+
+   Session session = null;
+        try {
+            session= NewHibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(profesores);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.printf(e.getMessage());
+            session.getTransaction().rollback();
+        }finally{
+            if(session != null)
+            {
+                session.close();
+            }
+        }
+
+
+
